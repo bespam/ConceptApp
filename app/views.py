@@ -12,7 +12,7 @@ def index():
     { 
         'author': { 'nickname': 'Susan' }, 
         'body': 'The Avengers movie was so cool!' 
-    }
+    }]
     return render_template('index.html',
         title = 'Home',
         user = "Igor",
