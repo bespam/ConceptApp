@@ -14,7 +14,7 @@ App for association search within the ConceptNet5 hypergraph.
         <form role="form" action="" method="post" name="edit">
         {{form.hidden_tag()}}
             <div class="form-group">
-                {{form.terms(size=50, class="form-control", placeholder="Enter keywords", id="keywords")}}
+                {{form.terms(size=50, class="form-control", placeholder="Enter a few keywords separated by commas", id="keywords")}}
             </div>
             <button type="submit" class="btn btn-default" value="Search Association"><span class="glyphicon glyphicon-cog"></span> Analyze</button>
         </form>
