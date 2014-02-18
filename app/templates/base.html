@@ -7,11 +7,28 @@
     {% endif %}
   </head>
   <body>
-    <div>ConceptApp:
-    </div>
+    <div>ConceptApp:</div>
     <hr>
-    <ul>
-    </ul>
-    {% block content %}{% endblock %}
+    <form action="" method="post" name="edit">
+    {{form.hidden_tag()}}
+        <table>
+            <tr>
+                <td>Enter search terms:</td>
+                <td>{{form.terms(size=25)}}</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" value="Search Association"></td>
+            </tr>
+        </table>
+    </form>
+    <hr>
+    {% if message %}
+    <div>{{message}}</div>
+    <hr>
+    {% endif %}
+    {% if link %}
+    <img src="{{link}}" width="300">
+    {% endif %}
   </body>
 </html>
