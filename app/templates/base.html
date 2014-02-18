@@ -1,13 +1,13 @@
 <html>
   <head>
     {% if title %}
-    <title>{{title}} - ConceptApp</title>
+    <title>{{title}}</title>
     {% else %}
     <title>Title</title>
     {% endif %}
   </head>
   <body>
-    <div>ConceptApp:</div>
+    <div><b>ConceptApp:</b></div>
     <hr>
     <form action="" method="post" name="edit">
     {{form.hidden_tag()}}
@@ -27,8 +27,11 @@
     <div>{{message}}</div>
     <hr>
     {% endif %}
+    {% if image_title %}
+    <div>Image: {{image_title}}</div>
+    {% endif %}    
     {% if link %}
-    <img src="{{link}}" width="300">
+    <img src="{{link}}" style="max-width:400px">
     {% endif %}
   </body>
 </html>

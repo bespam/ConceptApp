@@ -16,8 +16,9 @@ def index():
         data = response.json()
         #extract answer terms
         similar = data[u'similar']
+        #print similar
         if len(similar) > 0:
-            answers = [x[0].encode().split('/')[-1] for x in similar]
+            answers = [x[0].encode().split('/')[3] for x in similar]
             keywords = [x for x in answers if x not in terms] 
             google_q = keywords[0].replace('_','+')
             #request google images
@@ -30,6 +31,7 @@ def index():
             return render_template('base.html',
                 form = form,
                 link = link,
+                image_title = keywords[0],
                 message = message,
                 title = 'ConceptApp')
         else:
