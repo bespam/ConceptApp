@@ -1,37 +1,53 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
-    {% if title %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+
     <title>{{title}}</title>
-    {% else %}
-    <title>Title</title>
-    {% endif %}
+
+    <!-- Bootstrap core CSS -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="/static/css/theme.css" rel="stylesheet">
+    
   </head>
+
   <body>
-    <div><b>ConceptApp:</b></div>
-    <hr>
-    <form action="" method="post" name="edit">
-    {{form.hidden_tag()}}
-        <table>
-            <tr>
-                <td>Enter search terms:</td>
-                <td>{{form.terms(size=25)}}</td>
-            </tr>
-            <tr>
-                <td></td>
-                <td><input type="submit" value="Search Association"></td>
-            </tr>
-        </table>
-    </form>
-    <hr>
-    {% if message %}
-    <div>{{message}}</div>
-    <hr>
-    {% endif %}
-    {% if image_title %}
-    <div>Image result for: {{image_title}}</div>
-    {% endif %}    
-    {% if link %}
-    <img src="{{link}}" style="max-width:400px">
-    {% endif %}
+
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">{{title}}</a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+    <div class="container theme-showcase" role="main">
+    {% block content %}{% endblock %}
+    </div>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
   </body>
 </html>

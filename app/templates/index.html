@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="jumbotron">
+<div class="theme">
+<h2>{{title}}</h2>
+App for association search within the ConceptNet5 hypergraph.
+</div>
+</div>
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">Search keywords</h3>
+    </div>
+    <div class="panel-body">
+        <form role="form" action="" method="post" name="edit">
+        {{form.hidden_tag()}}
+            <div class="form-group">
+                {{form.terms(size=50, class="form-control", placeholder="Enter keywords", id="keywords")}}
+            </div>
+            <button type="submit" class="btn btn-default" value="Search Association"><span class="glyphicon glyphicon-cog"></span> Analyze</button>
+        </form>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-6">
+        {% if concept_req %}
+            <div class="panel panel-success">
+                <div class="panel-heading">
+                    <h3 class="panel-title">ConceptNet5 API requested</h3>
+                </div>
+                <div class="panel-body">          
+                        {{concept_req}}
+                </div>
+            </div>
+        {% endif %}
+    </div>
+    <div class="col-sm-6">
+        {% if concept_ans %}
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">ConceptNet5 API answer</h3>
+                </div>
+                <div class="panel-body">          
+                        {{concept_ans}}
+                </div>
+            </div>
+        {% endif %}
+        {% if concept_error %}
+            <div class="panel panel-danger">
+                <div class="panel-heading">
+                    <h3 class="panel-title">ConceptNet5 API error</h3>
+                </div>
+                <div class="panel-body">          
+                        {{concept_error}}
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% if google_error %}
+    <div class="panel panel-danger">
+        <div class="panel-heading">
+            <h3 class="panel-title">Google API error</h3>
+        </div>
+        <div class="panel-body">          
+                {{google_error}}
+        </div>
+    </div>
+{% endif %}
+{% if link %}
+    <div class="panel panel-success">
+        <div class="panel-heading">
+            <h3 class="panel-title">Google image result for: {{image_title}}</h3>
+        </div>
+        <div class="panel-body">
+            <img src="{{link}}" style="max-width:400px">
+        </div>
+    </div>   
+{% endif %}
+{% endblock %}
