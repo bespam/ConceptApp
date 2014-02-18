@@ -23,7 +23,7 @@ def index():
             google_q = keywords[0].replace('_','+')
             #request google images
             google_url = 'https://www.googleapis.com/customsearch/v1?key=AIzaSyCqVvCxoKA6GKGcr_2kYqFg2O3E-kof2-c&cx=003867484209474582163:3ikgk4xehfo' +\
-            '&searchType=image&fileType=jpg&imgSize=small&alt=json&q='+google_q
+            '&searchType=image&fileType=jpg&imgSize=medium&alt=json&q='+google_q
             response = requests.get(google_url)
             data = response.json()
             link = data[u'items'][0][u'link']
