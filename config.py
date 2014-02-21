@@ -1,5 +1,3 @@
-import os
-
-CSRF_ENABLED = True
-SECRET_KEY = 'secret-key'
+CONCEPTAPP_API_KEY = "AIzaSyCqVvCxoKA6GKGcr_2kYqFg2O3E-kof2-c"
+CONCEPTAPP_CSE_ID = "003867484209474582163:3ikgk4xehfo"
     

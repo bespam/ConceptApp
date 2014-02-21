@@ -6,7 +6,7 @@ import requests
 
 @app.route('/', methods = ['GET', 'POST'])
 def index():
-    form = EditForm()
+    form = EditForm(csrf_enabled = False)
     if form.validate_on_submit():
         #request conceptnet5
         term_field = form.terms.data
@@ -24,7 +24,9 @@ def index():
             concept_ans = ', '.join(keywords)            
             google_q = keywords[0].replace('_','+')
             #request google images
-            google_url = 'https://www.googleapis.com/customsearch/v1?key=AIzaSyCqVvCxoKA6GKGcr_2kYqFg2O3E-kof2-c&cx=003867484209474582163:3ikgk4xehfo' +\
+            CONCEPTAPP_API_KEY = app.config['CONCEPTAPP_API_KEY']
+            CONCEPTAPP_CSE_ID = app.config['CONCEPTAPP_CSE_ID']
+            google_url = 'https://www.googleapis.com/customsearch/v1?key='+ CONCEPTAPP_API_KEY +'&cx=' +CONCEPTAPP_CSE_ID +\
             '&searchType=image&fileType=jpg&imgSize=medium&alt=json&q='+google_q
             response = requests.get(google_url)
             data = response.json()
